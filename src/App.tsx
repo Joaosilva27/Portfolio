@@ -9,9 +9,23 @@ function App() {
         </h1>
         <div className="appearance-none mt-4">
           <a className="mr-2">Projects</a>
-          <a className="mr-2">LinkedIn</a>
-          <a className="mr-2">Github</a>
-          <a>Contact</a>
+          <a
+            href="https://www.linkedin.com/in/jo%C3%A3o-silva-8992b4221/"
+            target="_blank"
+            className="mr-2"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/Joaosilva27"
+            target="_blank"
+            className="mr-2"
+          >
+            Github
+          </a>
+          <a href="mailto:joaosilva7875@gmail.com" target="_blank">
+            Contact
+          </a>
         </div>
       </nav>
     </div>
