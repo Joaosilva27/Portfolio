@@ -30,13 +30,36 @@ const Model: React.FC<{ modelPath: string; showMenu: boolean }> = ({
     box.getSize(size); // Get the size of the bounding box
     const maxSize = Math.max(size.x, size.y, size.z); // Get the largest dimension
 
-    const scaleFactor = (2 / maxSize) * 2.3; // Scale factor to make sure the largest dimension is 2 units
-    setScale([scaleFactor, scaleFactor, scaleFactor]); // Set the scale state
+    // Adjust the scale based on the model size
+    let scaleFactor = 2 / maxSize; // Scale factor to fit within a unit size (scale down for large models)
+
+    if (modelPath === "/models/capybara.glb") {
+      // For the capybara, you might want to scale it differently since it's bigger
+      scaleFactor = 0.2; // This is a fixed scale factor, you can adjust this value based on your need
+    }
+
+    if (modelPath === "/models/maxwell.glb") {
+      // For the capybara, you might want to scale it differently since it's bigger
+      scaleFactor = 2; // This is a fixed scale factor, you can adjust this value based on your need
+    }
+
+    if (modelPath === "/models/oia_cat.glb") {
+      // For the capybara, you might want to scale it differently since it's bigger
+      scaleFactor = 2.3; // This is a fixed scale factor, you can adjust this value based on your need
+    }
+
+    if (modelPath === "/models/banana.glb") {
+      // For the capybara, you might want to scale it differently since it's bigger
+      scaleFactor = 160; // This is a fixed scale factor, you can adjust this value based on your need
+    }
+
+    // Set the scale dynamically for the selected model
+    setScale([scaleFactor, scaleFactor, scaleFactor]);
 
     return () => {
       if (mixer.current) mixer.current.stopAllAction(); // Clean up the mixer on unmount
     };
-  }, [animations, scene]);
+  }, [animations, scene, modelPath]); // Re-run the effect when the model changes
 
   // Update the animation mixer every frame
   useFrame((_, delta) => {
@@ -56,23 +79,21 @@ const Model: React.FC<{ modelPath: string; showMenu: boolean }> = ({
   scene.rotation.x = 6;
   scene.rotation.z = 6;
 
-  // Adjust the model's scale based on whether the menu is shown
-  const modelScale = 0.1;
-
-  return (
-    <primitive object={scene} scale={[modelScale, modelScale, modelScale]} />
-  );
+  // Apply the dynamically calculated scale to the model
+  return <primitive object={scene} scale={scale} />;
 };
 
 const CharacterScene: React.FC<CharacterSceneProps> = ({
   modelPath,
   showMenu,
 }) => {
+  const isCapybara = modelPath === "/models/capybara.glb"; // Check if the selected model is the capybara
+
   return (
     <Canvas
       camera={{
-        position: showMenu ? [0, 5, 10] : [0, 1, 3], // Adjust camera position when showMenu is true
-        fov: showMenu ? 20 : 3, // Adjust the FOV for better fitting
+        position: isCapybara ? [0, 5, 15] : [0, 5, 10], // For capybara, zoom out more
+        fov: isCapybara ? 25 : 20, // For capybara, use a wider field of view
       }}
       gl={{
         antialias: true, // Enable antialiasing for better quality

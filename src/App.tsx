@@ -4,8 +4,9 @@ import CharacterScene from "./CharacterScene"; // Import the CharacterScene comp
 
 function App() {
   const modelPath = "/models/maxwell.glb"; // silly loaf dancing cat model (default model)
-  const bananaCat = "/models/banana.glb";
+  const capybara = "/models/capybara.glb";
   const oiaCat = "/models/oia_cat.glb";
+  const bananaCat = "/models/banana.glb";
   const [currentModel, setCurrentModel] = useState(modelPath);
   const [petName, setPetName] = useState("Pudding");
   const [showMenu, setShowMenu] = useState(false);
@@ -89,15 +90,21 @@ function App() {
             </button>
             <button
               className="p-2"
-              onClick={() => handlePetSelection(bananaCat, "Banana Cat")}
+              onClick={() => handlePetSelection(capybara, "Capy")}
             >
-              Banana Cat
+              Capybara
             </button>
             <button
               className="p-2"
               onClick={() => handlePetSelection(oiaCat, "Oia Cat")}
             >
               Oia Cat
+            </button>
+            <button
+              className="p-2"
+              onClick={() => handlePetSelection(bananaCat, "Banana Cat")}
+            >
+              Banana Cat
             </button>
           </div>
         )}
