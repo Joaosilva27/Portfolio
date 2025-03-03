@@ -6,9 +6,13 @@ import * as THREE from "three"; // Import the necessary classes from three.js
 
 interface CharacterSceneProps {
   modelPath: string;
+  showMenu: boolean; // Prop to indicate if the menu is shown
 }
 
-const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
+const Model: React.FC<{ modelPath: string; showMenu: boolean }> = ({
+  modelPath,
+  showMenu,
+}) => {
   const { scene, animations } = useGLTF(modelPath); // Load the GLTF model and animations
   const mixer = useRef<AnimationMixer | null>(null);
   const [scale, setScale] = useState([1, 1, 1]); // Default scale
@@ -52,15 +56,23 @@ const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
   scene.rotation.x = 6;
   scene.rotation.z = 6;
 
-  return <primitive object={scene} scale={scale} />;
+  // Adjust the model's scale based on whether the menu is shown
+  const modelScale = 0.1;
+
+  return (
+    <primitive object={scene} scale={[modelScale, modelScale, modelScale]} />
+  );
 };
 
-const CharacterScene: React.FC<CharacterSceneProps> = ({ modelPath }) => {
+const CharacterScene: React.FC<CharacterSceneProps> = ({
+  modelPath,
+  showMenu,
+}) => {
   return (
     <Canvas
       camera={{
-        position: [0, 5, 10], // Adjust the camera position further away for a better view
-        fov: 50, // Adjust the FOV to zoom in and fit the model properly
+        position: showMenu ? [0, 5, 10] : [0, 1, 3], // Adjust camera position when showMenu is true
+        fov: showMenu ? 20 : 3, // Adjust the FOV for better fitting
       }}
       gl={{
         antialias: true, // Enable antialiasing for better quality
@@ -79,7 +91,7 @@ const CharacterScene: React.FC<CharacterSceneProps> = ({ modelPath }) => {
         intensity={10} // Adjust intensity to match the scene
       />
       {/* 3D Model */}
-      <Model modelPath={modelPath} />
+      <Model modelPath={modelPath} showMenu={showMenu} />
       {/* Orbit Controls for rotating and zooming */}
       <OrbitControls
         enableDamping

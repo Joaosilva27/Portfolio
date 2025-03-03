@@ -15,6 +15,12 @@ function App() {
     setShowMenu(!showMenu);
   };
 
+  // Change the model when a pet is selected
+  const handlePetSelection = (model: string, name: string) => {
+    setCurrentModel(model);
+    setPetName(name);
+  };
+
   // Effect to change the background color of the body when the menu is toggled
   useEffect(() => {
     if (showMenu) {
@@ -71,7 +77,31 @@ function App() {
         } relative flex flex-col items-center justify-center w-full max-w-full flex-shrink-0`}
       >
         {/* Set size for the 3D Canvas */}
-        <CharacterScene modelPath={modelPath} />
+        <CharacterScene modelPath={currentModel} showMenu={showMenu} />
+        {/* Show buttons to select pets if the menu is visible */}
+        {showMenu && (
+          <div className="flex flex-row justify-around text-white">
+            <button
+              className="p-2"
+              onClick={() => handlePetSelection(modelPath, "Pudding")}
+            >
+              Default Cat
+            </button>
+            <button
+              className="p-2"
+              onClick={() => handlePetSelection(bananaCat, "Banana Cat")}
+            >
+              Banana Cat
+            </button>
+            <button
+              className="p-2"
+              onClick={() => handlePetSelection(oiaCat, "Oia Cat")}
+            >
+              Oia Cat
+            </button>
+          </div>
+        )}
+
         {!showMenu && (
           <div className="flex">
             <span className="mb-6 text-white text-xl font-bold">{petName}</span>
