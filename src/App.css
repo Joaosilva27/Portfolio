@@ -10,43 +10,93 @@ a {
   text-decoration: none;
 }
 
-/* Add a class for the 3D canvas container */
+/* 3D Canvas container */
 .canvas-container {
   width: 100%;
-  height: 600px; /* Adjust the height as needed */
+  max-width: 900px; /* Set a max-width for the canvas container */
+  height: 500px; /* Set a fixed height for the container */
   margin-top: 20px;
   display: flex;
   justify-content: center; /* Ensures horizontal centering */
   align-items: center; /* Ensures vertical centering */
-  background-color: green;
+  background-color: green; /* Initially transparent background */
   border: 2px solid #ddd; /* Optional: Border for the canvas */
   border-radius: 10px; /* Optional: Rounded corners */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for the container */
-}
-
-/* Adjust body for mobile, align content to top */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff; /* Background color */
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  height: 100vh; /* Make sure the page fills the screen */
-  align-items: flex-start; /* Align content to the top of the page */
-  color: black;
+  transition: background-color 0.3s ease; /* Transition for the background */
+  margin: 0 auto; /* Centers the container */
 }
 
 /* Mobile-specific styles */
 @media (max-width: 768px) {
-  /* Ensure content stays at the top */
   .canvas-container {
-    height: 400px; /* Reduce canvas height on smaller screens */
+    height: 400px; /* Adjust canvas height for smaller screens */
+    max-width: 100%; /* Make canvas container full width on mobile */
   }
 
+  .flex {
+    justify-content: flex-start; /* Align content to the top */
+  }
+}
+
+/* Menu Overlay (background that covers the screen) */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above the rest of the content */
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Prevent interaction when invisible */
+  transition: opacity 0.3s ease; /* Fade-in transition */
+}
+
+/* Menu Content */
+.menu-content {
+  background-color: green;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease-out; /* Slide-up animation */
+}
+
+/* Slide-up animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* When the menu is visible, show the overlay */
+.menu-overlay.show {
+  opacity: 1;
+  pointer-events: auto; /* Enable interaction when visible */
+}
+
+/* When the menu is shown, update the canvas container's background */
+.bg-green-500 .canvas-container {
+  background-color: green; /* Change canvas background to green when the menu is open */
+}
+
+/* Navigation and Attribution visibility when the menu is shown */
+.hide-when-menu {
+  display: none; /* Hide navigation and attribution when menu is shown */
+}
+
+/* Responsive adjustments for navigation and attribution */
+@media (max-width: 768px) {
   nav {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 10px; /* Adjust padding on smaller screens */
   }
 
   h1 {
@@ -62,15 +112,7 @@ body {
     margin-bottom: 10px; /* Space between links */
   }
 
-  /* Prevent centering on mobile */
-  .flex {
-    justify-content: flex-start; /* Align the content to the top */
-  }
-}
-
-@media (min-width: 768px) {
-  /* Tablet and larger screens */
-  .canvas-container {
-    height: 500px; /* Adjust height slightly for tablets */
+  .text-sm {
+    font-size: 0.875rem; /* Adjust font size for attribution text on mobile */
   }
 }
