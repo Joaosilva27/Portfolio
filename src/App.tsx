@@ -25,9 +25,9 @@ function App() {
   // Effect to change the background color of the body when the menu is toggled
   useEffect(() => {
     if (showMenu) {
-      document.body.style.backgroundColor = "green"; // Set green background when menu is shown
+      document.documentElement.style.backgroundColor = "green"; // Set green background when menu is shown
     } else {
-      document.body.style.backgroundColor = ""; // Reset background when menu is hidden
+      document.documentElement.style.backgroundColor = "white"; // Reset background when menu is hidden
     }
   }, [showMenu]); // Runs whenever showMenu state changes
 
