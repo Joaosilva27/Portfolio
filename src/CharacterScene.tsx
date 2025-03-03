@@ -11,7 +11,6 @@ interface CharacterSceneProps {
 
 const Model: React.FC<{ modelPath: string; showMenu: boolean }> = ({
   modelPath,
-  showMenu,
 }) => {
   const { scene, animations } = useGLTF(modelPath); // Load the GLTF model and animations
   const mixer = useRef<AnimationMixer | null>(null);
@@ -39,17 +38,14 @@ const Model: React.FC<{ modelPath: string; showMenu: boolean }> = ({
     }
 
     if (modelPath === "/models/maxwell.glb") {
-      // For the capybara, you might want to scale it differently since it's bigger
       scaleFactor = 2; // This is a fixed scale factor, you can adjust this value based on your need
     }
 
     if (modelPath === "/models/oia_cat.glb") {
-      // For the capybara, you might want to scale it differently since it's bigger
       scaleFactor = 2.3; // This is a fixed scale factor, you can adjust this value based on your need
     }
 
     if (modelPath === "/models/banana.glb") {
-      // For the capybara, you might want to scale it differently since it's bigger
       scaleFactor = 160; // This is a fixed scale factor, you can adjust this value based on your need
     }
 
@@ -68,16 +64,17 @@ const Model: React.FC<{ modelPath: string; showMenu: boolean }> = ({
 
   // Remove shadows from the model
   scene.traverse((child) => {
-    if (child.isMesh) {
+    if (child instanceof THREE.Mesh) {
+      // Check if the child is an instance of THREE.Mesh
       child.castShadow = false;
       child.receiveShadow = false;
     }
   });
 
   // Apply a rotation to ensure the face is visible (rotate 180 degrees on Y-axis)
-  scene.rotation.y = Math.PI / 1.9; // 180 degrees in radians (you can adjust this value for fine-tuning)
+  scene.rotation.y = Math.PI / 3; // 180 degrees in radians (you can adjust this value for fine-tuning)
   scene.rotation.x = 6;
-  scene.rotation.z = 6;
+  scene.rotation.z = 6.5;
 
   // Apply the dynamically calculated scale to the model
   return <primitive object={scene} scale={scale} />;
