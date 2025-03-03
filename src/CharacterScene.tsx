@@ -24,7 +24,7 @@ const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
   }, [animations, scene]);
 
   // Update the animation mixer every frame
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (mixer.current) mixer.current.update(delta); // Update the animation
   });
 
