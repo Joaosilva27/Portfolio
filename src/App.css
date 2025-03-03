@@ -34,6 +34,7 @@ body {
   justify-content: center;
   height: 100vh; /* Make sure the page fills the screen */
   align-items: flex-start; /* Align content to the top of the page */
+  color: black;
 }
 
 /* Mobile-specific styles */
