@@ -34,7 +34,7 @@ function App() {
       </nav>
 
       {/* 3D model section */}
-      <div className="canvas-container flex items-center w-full max-w-full">
+      <div className="canvas-container flex items-center justify-center w-full max-w-full">
         {/* Set size for the 3D Canvas */}
         <CharacterScene modelPath={modelPath} />
       </div>

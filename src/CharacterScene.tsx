@@ -30,25 +30,31 @@ const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
 
   return <primitive object={scene} />;
 };
-
 const CharacterScene: React.FC<CharacterSceneProps> = ({ modelPath }) => {
   return (
     <Canvas
       camera={{
-        position: [3, 3, 3], // Position the camera to zoom in on the model
-        fov: 50, // Adjust field of view for proper scaling
+        position: [0, 10, 3], // Adjust camera position as needed
+        fov: 8, // Lower the FOV for zooming in on the model
       }}
       gl={{
         antialias: true, // Enable antialiasing for better quality
       }}
     >
       {/* Lighting */}
-      <ambientLight intensity={0.5} /> {/* General ambient light */}
-      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />{" "}
-      {/* Spot light for directional lighting */}
+      <ambientLight intensity={1} /> {/* Increase ambient light intensity */}
+      <spotLight
+        position={[10, 10, 10]}
+        angle={0.15}
+        penumbra={1}
+        intensity={1}
+      />{" "}
+      {/* Add a stronger spot light */}
+      <directionalLight position={[0, 10, 0]} intensity={0.5} />{" "}
+      {/* Optional: Add a directional light */}
       {/* 3D Model */}
       <Model modelPath={modelPath} />
-      {/* Orbit Controls to rotate and zoom */}
+      {/* Orbit Controls for rotating and zooming */}
       <OrbitControls />
     </Canvas>
   );

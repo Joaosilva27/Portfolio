@@ -16,8 +16,8 @@ a {
   height: 600px; /* Adjust the height as needed */
   margin-top: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Ensures horizontal centering */
+  align-items: center; /* Ensures vertical centering */
   background-color: green;
   border: 2px solid #ddd; /* Optional: Border for the canvas */
   border-radius: 10px; /* Optional: Rounded corners */
