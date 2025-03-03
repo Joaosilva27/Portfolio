@@ -25,13 +25,20 @@ function App() {
   }, [showMenu]); // Runs whenever showMenu state changes
 
   return (
-    <div
-      className={`flex flex-col lg:w-5/6 m-5 lg:m-0 lg:mt-4 transition-colors duration-300`}
-    >
+    <div className="flex flex-col lg:w-5/6 m-5 lg:m-0 lg:mt-4 transition-colors duration-300">
+      {/* Show the "X" button if menu is visible */}
+      {showMenu && (
+        <div className="absolute top-0 right-4 z-10 mt-4">
+          <span className="text-2xl text-white " onClick={toggleMenu}>
+            x
+          </span>
+        </div>
+      )}
+
       {/* Conditional rendering of nav based on showMenu */}
       {!showMenu && (
         <nav className="w-full flex flex-col items-center">
-          <h1 className="text-2xl font-bold text-center ">
+          <h1 className="text-2xl font-bold text-center">
             João Silva: Bringing Ideas to Life Through Frontend Development.
           </h1>
           <div className="mt-4 flex flex-wrap justify-center gap-4">
@@ -65,12 +72,14 @@ function App() {
       >
         {/* Set size for the 3D Canvas */}
         <CharacterScene modelPath={modelPath} />
-        <div className="flex">
-          <span className="mb-6 text-white text-xl font-bold">{petName}</span>
-          <button className="absolute right-0 mr-2" onClick={toggleMenu}>
-            Menu
-          </button>
-        </div>
+        {!showMenu && (
+          <div className="flex">
+            <span className="mb-6 text-white text-xl font-bold">{petName}</span>
+            <button className="absolute right-0 mr-2" onClick={toggleMenu}>
+              Menu
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Conditional rendering of Attribution */}
