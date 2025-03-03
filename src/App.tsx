@@ -5,7 +5,9 @@ import CharacterScene from "./CharacterScene"; // Import the CharacterScene comp
 function App() {
   const modelPath = "/models/maxwell.glb"; // silly loaf dancing cat model (default model)
   const bananaCat = "/models/banana.glb";
+  const oiaCat = "/models/oia_cat.glb";
   const [currentModel, setCurrentModel] = useState(modelPath);
+  const [petName, setPetName] = useState("Pudding");
 
   return (
     <div className="flex flex-col lg:w-5/6 m-5 lg:m-0 lg:mt-4 ">
@@ -38,8 +40,8 @@ function App() {
       {/* 3D model section */}
       <div className="canvas-container flex flex-col items-center justify-center w-full max-w-full">
         {/* Set size for the 3D Canvas */}
-        <CharacterScene modelPath={bananaCat} />
-        <span>pet name</span>
+        <CharacterScene modelPath={modelPath} />
+        <span className="mb-6 text-white text-xl font-bold">{petName}</span>
       </div>
       {/* Attribution Span */}
       <div className="mt-4 text-sm text-center">

@@ -26,7 +26,7 @@ const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
     box.getSize(size); // Get the size of the bounding box
     const maxSize = Math.max(size.x, size.y, size.z); // Get the largest dimension
 
-    const scaleFactor = 2 / maxSize; // Scale factor to make sure the largest dimension is 2 units
+    const scaleFactor = (2 / maxSize) * 2.3; // Scale factor to make sure the largest dimension is 2 units
     setScale([scaleFactor, scaleFactor, scaleFactor]); // Set the scale state
 
     return () => {
@@ -76,7 +76,7 @@ const CharacterScene: React.FC<CharacterSceneProps> = ({ modelPath }) => {
       />
       <directionalLight
         position={[5, 5, 5]}
-        intensity={30} // Adjust intensity to match the scene
+        intensity={10} // Adjust intensity to match the scene
       />
       {/* 3D Model */}
       <Model modelPath={modelPath} />
