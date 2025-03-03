@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import CharacterScene from "./CharacterScene"; // Import the CharacterScene component
 
@@ -15,11 +15,18 @@ function App() {
     setShowMenu(!showMenu);
   };
 
+  // Effect to change the background color of the body when the menu is toggled
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.backgroundColor = "green"; // Set green background when menu is shown
+    } else {
+      document.body.style.backgroundColor = ""; // Reset background when menu is hidden
+    }
+  }, [showMenu]); // Runs whenever showMenu state changes
+
   return (
     <div
-      className={`flex flex-col lg:w-5/6 m-5 lg:m-0 lg:mt-4 ${
-        showMenu ? "bg-green-500" : ""
-      } transition-colors duration-300`}
+      className={`flex flex-col lg:w-5/6 m-5 lg:m-0 lg:mt-4 transition-colors duration-300`}
     >
       {/* Conditional rendering of nav based on showMenu */}
       {!showMenu && (
@@ -51,7 +58,11 @@ function App() {
       )}
 
       {/* 3D model section */}
-      <div className="canvas-container relative flex flex-col items-center justify-center w-full max-w-full flex-shrink-0">
+      <div
+        className={`canvas-container ${
+          !showMenu && "border-2 border-solid border-gray-300"
+        } relative flex flex-col items-center justify-center w-full max-w-full flex-shrink-0`}
+      >
         {/* Set size for the 3D Canvas */}
         <CharacterScene modelPath={modelPath} />
         <div className="flex">

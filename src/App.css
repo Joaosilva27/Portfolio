@@ -20,9 +20,7 @@ a {
   justify-content: center; /* Ensures horizontal centering */
   align-items: center; /* Ensures vertical centering */
   background-color: green; /* Initially transparent background */
-  border: 2px solid #ddd; /* Optional: Border for the canvas */
   border-radius: 10px; /* Optional: Rounded corners */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for the container */
   transition: background-color 0.3s ease; /* Transition for the background */
   margin: 0 auto; /* Centers the container */
 }
@@ -46,7 +44,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: green; /* Semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,11 +81,6 @@ a {
   pointer-events: auto; /* Enable interaction when visible */
 }
 
-/* When the menu is shown, update the canvas container's background */
-.bg-green-500 .canvas-container {
-  background-color: green; /* Change canvas background to green when the menu is open */
-}
-
 /* Navigation and Attribution visibility when the menu is shown */
 .hide-when-menu {
   display: none; /* Hide navigation and attribution when menu is shown */
@@ -115,4 +108,17 @@ a {
   .text-sm {
     font-size: 0.875rem; /* Adjust font size for attribution text on mobile */
   }
+}
+
+/* Ensure the body and html elements take up the entire viewport */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+body {
+  min-height: 100vh; /* Ensure body covers the entire height */
 }
