@@ -36,6 +36,11 @@ const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
     }
   });
 
+  // Apply a rotation to ensure the face is visible (rotate 180 degrees on Y-axis)
+  scene.rotation.y = Math.PI / 1.9; // 180 degrees in radians (you can adjust this value for fine-tuning)
+  scene.rotation.x = 6;
+  scene.rotation.z = 6;
+
   return <primitive object={scene} />;
 };
 
@@ -60,7 +65,7 @@ const CharacterScene: React.FC<CharacterSceneProps> = ({ modelPath }) => {
       />
       <directionalLight
         position={[5, 5, 5]}
-        intensity={40} // Adjust intensity to match the scene
+        intensity={30} // Adjust intensity to match the scene
       />
       {/* 3D Model */}
       <Model modelPath={modelPath} />
