@@ -38,6 +38,30 @@ function App() {
         {/* Set size for the 3D Canvas */}
         <CharacterScene modelPath={modelPath} />
       </div>
+      {/* Attribution Span */}
+      <div className="mt-4 text-sm text-center">
+        <span>
+          Models by{" "}
+          <a
+            href="https://sketchfab.com/Zhuier" // Replace with the actual URL of the model creator's page
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+          >
+            Zhuier
+          </a>
+          . Licensed under{" "}
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/" // Replace with the actual URL of the model's license
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+          >
+            CC BY 4.0
+          </a>
+          .
+        </span>
+      </div>
     </div>
   );
 }
