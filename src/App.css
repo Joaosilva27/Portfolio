@@ -7,6 +7,7 @@
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 /* Add a class for the 3D canvas container */
@@ -23,7 +24,7 @@ a {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for the container */
 }
 
-/* Optional: Make the model look more centered in the viewport */
+/* Adjust body for mobile, align content to top */
 body {
   font-family: Arial, sans-serif;
   background-color: #ffffff; /* Background color */
@@ -31,7 +32,45 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh; /* Make sure the page fills the screen */
-  flex-direction: column;
+  align-items: flex-start; /* Align content to the top of the page */
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* Ensure content stays at the top */
+  .canvas-container {
+    height: 400px; /* Reduce canvas height on smaller screens */
+  }
+
+  nav {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Adjust title size for smaller screens */
+  }
+
+  .appearance-none {
+    display: block; /* Ensure links are stacked vertically on mobile */
+  }
+
+  .appearance-none a {
+    display: block;
+    margin-bottom: 10px; /* Space between links */
+  }
+
+  /* Prevent centering on mobile */
+  .flex {
+    justify-content: flex-start; /* Align the content to the top */
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Tablet and larger screens */
+  .canvas-container {
+    height: 500px; /* Adjust height slightly for tablets */
+  }
 }
