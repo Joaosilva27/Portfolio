@@ -65,7 +65,6 @@ body {
   /* Prevent centering on mobile */
   .flex {
     justify-content: flex-start; /* Align the content to the top */
-    align-items: flex-start;
   }
 }
 

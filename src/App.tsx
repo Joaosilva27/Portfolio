@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="flex flex-col lg:w-5/6 m-5 lg:m-0 lg:mt-4 ">
-      <nav className="w-full">
+      <nav className="w-full flex flex-col items-center">
         <h1 className="text-2xl font-bold text-center ">
           João Silva: Bringing Ideas to Life Through Frontend Development.
         </h1>
@@ -34,9 +34,10 @@ function App() {
       </nav>
 
       {/* 3D model section */}
-      <div className="canvas-container flex items-center justify-center w-full max-w-full">
+      <div className="canvas-container flex flex-col items-center justify-center w-full max-w-full">
         {/* Set size for the 3D Canvas */}
         <CharacterScene modelPath={modelPath} />
+        <span>pet name</span>
       </div>
       {/* Attribution Span */}
       <div className="mt-4 text-sm text-center">

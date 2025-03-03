@@ -28,34 +28,49 @@ const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
     if (mixer.current) mixer.current.update(delta); // Update the animation
   });
 
+  // Remove shadows from the model
+  scene.traverse((child) => {
+    if (child.isMesh) {
+      child.castShadow = false;
+      child.receiveShadow = false;
+    }
+  });
+
   return <primitive object={scene} />;
 };
+
 const CharacterScene: React.FC<CharacterSceneProps> = ({ modelPath }) => {
   return (
     <Canvas
       camera={{
-        position: [0, 10, 3], // Adjust camera position as needed
-        fov: 8, // Lower the FOV for zooming in on the model
+        position: [3, 10, 5], // Adjust camera position as needed
+        fov: 7, // Adjust FOV to zoom in/out
       }}
       gl={{
         antialias: true, // Enable antialiasing for better quality
       }}
     >
       {/* Lighting */}
-      <ambientLight intensity={1} /> {/* Increase ambient light intensity */}
+      <ambientLight intensity={0.8} /> {/* Increased ambient light intensity */}
       <spotLight
         position={[10, 10, 10]}
         angle={0.15}
         penumbra={1}
-        intensity={1}
-      />{" "}
-      {/* Add a stronger spot light */}
-      <directionalLight position={[0, 10, 0]} intensity={0.5} />{" "}
-      {/* Optional: Add a directional light */}
+        intensity={10} // Increased intensity for the spot light
+      />
+      <directionalLight
+        position={[5, 5, 5]}
+        intensity={40} // Adjust intensity to match the scene
+      />
       {/* 3D Model */}
       <Model modelPath={modelPath} />
       {/* Orbit Controls for rotating and zooming */}
-      <OrbitControls />
+      <OrbitControls
+        enableDamping
+        dampingFactor={0.25}
+        rotateSpeed={0.7}
+        maxPolarAngle={Math.PI / 2} // Restrict vertical rotation
+      />
     </Canvas>
   );
 };
