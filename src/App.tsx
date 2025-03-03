@@ -3,7 +3,7 @@ import CharacterScene from "./CharacterScene"; // Import the CharacterScene comp
 
 function App() {
   // Path to your 3D model (GLB or GLTF format)
-  const modelPath = "/models/maxwell.glb";
+  const modelPath = "/models/maxwell.glb"; // Correct path for models inside the public folder
 
   return (
     <div className="flex flex-col items-center lg:w-5/6 m-5 lg:m-0 lg:mt-4 ">
@@ -34,8 +34,7 @@ function App() {
       </nav>
 
       {/* 3D model section */}
-      <div style={{ width: "100%", height: "500px" }}>
-        {" "}
+      <div className="canvas-container">
         {/* Set size for the 3D Canvas */}
         <CharacterScene modelPath={modelPath} />
       </div>
