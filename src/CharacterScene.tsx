@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { AnimationMixer } from "three";
+import * as THREE from "three"; // Import the necessary classes from three.js
 
 interface CharacterSceneProps {
   modelPath: string;
@@ -10,6 +11,7 @@ interface CharacterSceneProps {
 const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
   const { scene, animations } = useGLTF(modelPath); // Load the GLTF model and animations
   const mixer = useRef<AnimationMixer | null>(null);
+  const [scale, setScale] = useState([1, 1, 1]); // Default scale
 
   // Initialize the animation mixer once the model and animations are loaded
   useEffect(() => {
@@ -17,6 +19,15 @@ const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
       mixer.current = new AnimationMixer(scene);
       animations.forEach((clip) => mixer.current?.clipAction(clip).play());
     }
+
+    // Calculate the bounding box and adjust the scale based on the size of the model
+    const box = new THREE.Box3().setFromObject(scene); // Get the bounding box of the model
+    const size = new THREE.Vector3();
+    box.getSize(size); // Get the size of the bounding box
+    const maxSize = Math.max(size.x, size.y, size.z); // Get the largest dimension
+
+    const scaleFactor = 2 / maxSize; // Scale factor to make sure the largest dimension is 2 units
+    setScale([scaleFactor, scaleFactor, scaleFactor]); // Set the scale state
 
     return () => {
       if (mixer.current) mixer.current.stopAllAction(); // Clean up the mixer on unmount
@@ -41,15 +52,15 @@ const Model: React.FC<{ modelPath: string }> = ({ modelPath }) => {
   scene.rotation.x = 6;
   scene.rotation.z = 6;
 
-  return <primitive object={scene} />;
+  return <primitive object={scene} scale={scale} />;
 };
 
 const CharacterScene: React.FC<CharacterSceneProps> = ({ modelPath }) => {
   return (
     <Canvas
       camera={{
-        position: [3, 10, 5], // Adjust camera position as needed
-        fov: 7, // Adjust FOV to zoom in/out
+        position: [0, 5, 10], // Adjust the camera position further away for a better view
+        fov: 50, // Adjust the FOV to zoom in and fit the model properly
       }}
       gl={{
         antialias: true, // Enable antialiasing for better quality

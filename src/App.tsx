@@ -1,9 +1,11 @@
+import { useState } from "react";
 import "./App.css";
 import CharacterScene from "./CharacterScene"; // Import the CharacterScene component
 
 function App() {
-  // Path to your 3D model (GLB or GLTF format)
-  const modelPath = "/models/maxwell.glb"; // Correct path for models inside the public folder
+  const modelPath = "/models/maxwell.glb"; // silly loaf dancing cat model (default model)
+  const bananaCat = "/models/banana.glb";
+  const [currentModel, setCurrentModel] = useState(modelPath);
 
   return (
     <div className="flex flex-col lg:w-5/6 m-5 lg:m-0 lg:mt-4 ">
@@ -36,7 +38,7 @@ function App() {
       {/* 3D model section */}
       <div className="canvas-container flex flex-col items-center justify-center w-full max-w-full">
         {/* Set size for the 3D Canvas */}
-        <CharacterScene modelPath={modelPath} />
+        <CharacterScene modelPath={bananaCat} />
         <span>pet name</span>
       </div>
       {/* Attribution Span */}
