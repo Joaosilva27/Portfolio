@@ -35,6 +35,14 @@ const ProjectsPage = () => {
             Create, share, and manage shopping lists with your household,
             partner or friends.
           </p>
+          <a
+            href="https://github.com/Joaosilva27/Grocery-List2.0"
+            target="_blank"
+          >
+            <span className="text-xs text-green-400 font-semibold mt-3">
+              Read more about it
+            </span>
+          </a>
         </div>
         <img
           src={GroceryListImage}
@@ -44,8 +52,8 @@ const ProjectsPage = () => {
       </div>
 
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-20 mt-25">
-        <div className="flex flex-col justify-center">
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r  from-blue-300 to-blue-200 bg-clip-text text-transparent">
+        <div className="flex flex-col justify-center md:order-2">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-300 to-blue-200 bg-clip-text text-transparent">
             Pokémon TCG Tracker
           </h3>
           <p className="text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3">
@@ -55,10 +63,15 @@ const ProjectsPage = () => {
             Track your Pokémon card collection and explore every set ever
             released since 1996.
           </p>
+          <a href="https://github.com/Joaosilva27/pokemontcg" target="_blank">
+            <span className="text-xs text-blue-300 font-semibold mt-3">
+              Read more about it
+            </span>
+          </a>
         </div>
         <img
           src={PokemonTcgImage}
-          className="mt-4 md:mt-0 w-full max-w-[280px] md:max-w-xs mx-auto"
+          className="mt-4 md:mt-0 w-full max-w-[280px] md:max-w-xs mx-auto md:order-1"
           alt="Pokémon TCG"
         />
       </div>
@@ -75,11 +88,16 @@ const ProjectsPage = () => {
             Comprehensive calibration workflows, technical reference guides, and
             real-time chat for professional calibrators.
           </p>
+          <a href="https://github.com/Joaosilva27/idlsmartbar" target="_blank">
+            <span className="text-xs text-blue-600 font-semibold mt-3">
+              Read more about it
+            </span>
+          </a>
         </div>
         <img
           src={SmartbarImage}
-          className=" w-140  mx-auto h-fit"
-          alt="Pokémon TCG"
+          className="w-140 mx-auto h-fit"
+          alt="Smartbar Interface"
         />
       </div>
     </div>
