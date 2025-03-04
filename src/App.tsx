@@ -12,7 +12,7 @@ function App() {
   const oiaCat = "/models/oia_cat.glb";
   const bananaCat = "/models/banana.glb";
   const [currentModel, setCurrentModel] = useState(modelPath);
-  const [petName, setPetName] = useState("Pudding");
+  const [petName, setPetName] = useState("Maxwell");
   const [showMenu, setShowMenu] = useState(false);
 
   // Toggle the menu visibility
@@ -36,16 +36,7 @@ function App() {
   }, [showMenu]); // Runs whenever showMenu state changes
 
   return (
-    <div className="flex flex-col lg:w-5/6 m-5 lg:m-0 lg:mt-4 transition-colors duration-300">
-      {/* Show the "X" button if menu is visible */}
-      {showMenu && (
-        <div className="absolute top-0 right-4 z-10 mt-4">
-          <span className="text-2xl text-white" onClick={toggleMenu}>
-            x
-          </span>
-        </div>
-      )}
-
+    <div className="flex flex-col m-5 lg:mt-4 transition-colors duration-300">
       {/* Conditional rendering of nav based on showMenu */}
       {!showMenu && (
         <nav className="w-full flex flex-col items-center">
@@ -85,47 +76,57 @@ function App() {
         <CharacterScene modelPath={currentModel} showMenu={showMenu} />
         {/* Show buttons to select pets if the menu is visible */}
         {showMenu && (
-          <div className="grid grid-cols-2 gap-4">
-            <button
-              className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
-              onClick={() => handlePetSelection(modelPath, "Maxwell")}
-            >
-              <img
-                src={defaultCatPicture}
-                alt="Maxwell"
-                className="w-25 h-25 lg:w-30 lg:h-30 object-scale-down mb-2"
-              />
-            </button>
-            <button
-              className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
-              onClick={() => handlePetSelection(capybara, "Capy")}
-            >
-              <img
-                src={capybaraPicture}
-                alt="Capybara"
-                className="w-25 h-25 lg:w-30 lg:h-30 object-scale-down mb-2"
-              />
-            </button>
-            <button
-              className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
-              onClick={() => handlePetSelection(oiaCat, "Oiiiaooiiiao")}
-            >
-              <img
-                src={oiaCatPicture}
-                alt="Oia Cat"
-                className="w-35 h-20 lg:w-40 lg:h-25 object-scale-down mb-2"
-              />
-            </button>
-            <button
-              className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
-              onClick={() => handlePetSelection(bananaCat, "Banana Cat")}
-            >
-              <img
-                src={bananaCatPicture}
-                alt="Banana Cat"
-                className="w-15 h-15 lg:w-20 lg:h-20 object-scale-down mb-2"
-              />
-            </button>
+          <div className="flex">
+            <div className="grid grid-cols-2 gap-4">
+              <button
+                className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
+                onClick={() => handlePetSelection(modelPath, "Maxwell")}
+              >
+                <img
+                  src={defaultCatPicture}
+                  alt="Maxwell"
+                  className="w-25 h-25 lg:w-30 lg:h-30 object-scale-down mb-2"
+                />
+              </button>
+              <button
+                className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
+                onClick={() => handlePetSelection(capybara, "Capy")}
+              >
+                <img
+                  src={capybaraPicture}
+                  alt="Capybara"
+                  className="w-25 h-25 lg:w-30 lg:h-30 object-scale-down mb-2"
+                />
+              </button>
+              <button
+                className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
+                onClick={() => handlePetSelection(oiaCat, "Oiiiaooiiiao")}
+              >
+                <img
+                  src={oiaCatPicture}
+                  alt="Oia Cat"
+                  className="w-35 h-20 lg:w-40 lg:h-25 object-scale-down mb-2"
+                />
+              </button>
+              <button
+                className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
+                onClick={() => handlePetSelection(bananaCat, "Oppa Banana")}
+              >
+                <img
+                  src={bananaCatPicture}
+                  alt="Banana Cat"
+                  className="w-15 h-15 lg:w-20 lg:h-20 object-scale-down mb-2"
+                />
+              </button>
+            </div>
+            <div className="absolute top-0 right-0 z-10">
+              <button
+                className="absolute right-0 bg-white w-fit"
+                onClick={toggleMenu}
+              >
+                Close
+              </button>
+            </div>
           </div>
         )}
 
