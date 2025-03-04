@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import CharacterScene from "./CharacterScene"; // Import the CharacterScene component
+import CharacterScene from "./CharacterScene";
 import defaultCatPicture from "./images/default.png";
 import bananaCatPicture from "./images/banana.png";
 import oiaCatPicture from "./images/oia.png";
 import capybaraPicture from "./images/capy.png";
 
 function App() {
-  const modelPath = "/models/maxwell.glb"; // silly loaf dancing cat model (default model)
+  const modelPath = "/models/maxwell.glb";
   const capybara = "/models/capybara.glb";
   const oiaCat = "/models/oia_cat.glb";
   const bananaCat = "/models/banana.glb";
@@ -15,29 +15,25 @@ function App() {
   const [petName, setPetName] = useState("Maxwell");
   const [showMenu, setShowMenu] = useState(false);
 
-  // Toggle the menu visibility
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
-  // Change the model when a pet is selected
   const handlePetSelection = (model: string, name: string) => {
     setCurrentModel(model);
     setPetName(name);
   };
 
-  // Effect to change the background color of the body when the menu is toggled
   useEffect(() => {
     if (showMenu) {
-      document.documentElement.style.backgroundColor = "green"; // Set green background when menu is shown
+      document.documentElement.style.backgroundColor = "green";
     } else {
-      document.documentElement.style.backgroundColor = "white"; // Reset background when menu is hidden
+      document.documentElement.style.backgroundColor = "white";
     }
-  }, [showMenu]); // Runs whenever showMenu state changes
+  }, [showMenu]);
 
   return (
     <div className="flex flex-col m-5 lg:mt-4 transition-colors duration-300">
-      {/* Conditional rendering of nav based on showMenu */}
       {!showMenu && (
         <nav className="w-full flex flex-col items-center">
           <h1 className="text-2xl font-bold text-center">
@@ -66,15 +62,12 @@ function App() {
         </nav>
       )}
 
-      {/* 3D model section */}
       <div
         className={`canvas-container ${
           !showMenu && "border-2 border-solid border-gray-300"
         } relative flex flex-col items-center justify-center w-full max-w-full flex-shrink-0`}
       >
-        {/* Set size for the 3D Canvas */}
         <CharacterScene modelPath={currentModel} showMenu={showMenu} />
-        {/* Show buttons to select pets if the menu is visible */}
         {showMenu && (
           <div className="flex">
             <div className="grid grid-cols-2 gap-4">
@@ -143,13 +136,12 @@ function App() {
         )}
       </div>
 
-      {/* Conditional rendering of Attribution */}
       {!showMenu && (
         <div className="mt-4 text-sm text-center">
           <span>
             Models by{" "}
             <a
-              href="https://sketchfab.com/Zhuier" // Replace with the actual URL of the model creator's page
+              href="https://sketchfab.com/Zhuier"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 underline"
@@ -158,7 +150,7 @@ function App() {
             </a>
             . Licensed under{" "}
             <a
-              href="https://creativecommons.org/licenses/by/4.0/" // Replace with the actual URL of the model's license
+              href="https://creativecommons.org/licenses/by/4.0/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 underline"

@@ -11,60 +11,55 @@ a {
   text-decoration: none;
 }
 
-/* 3D Canvas container */
 .canvas-container {
   width: 100%;
-  max-width: 900px; /* Set a max-width for the canvas container */
-  height: 500px; /* Set a fixed height for the container */
+  max-width: 900px;
+  height: 500px;
   margin-top: 20px;
   display: flex;
-  justify-content: center; /* Ensures horizontal centering */
-  align-items: center; /* Ensures vertical centering */
-  background-color: green; /* Initially transparent background */
-  border-radius: 10px; /* Optional: Rounded corners */
-  transition: background-color 0.3s ease; /* Transition for the background */
-  margin: 0 auto; /* Centers the container */
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  margin: 0 auto;
 }
 
-/* Mobile-specific styles */
 @media (max-width: 768px) {
   .canvas-container {
-    height: 400px; /* Adjust canvas height for smaller screens */
-    max-width: 100%; /* Make canvas container full width on mobile */
+    height: 400px;
+    max-width: 100%;
   }
 
   .flex {
-    justify-content: flex-start; /* Align content to the top */
+    justify-content: flex-start;
   }
 }
 
-/* Menu Overlay (background that covers the screen) */
 .menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: green; /* Semi-transparent background */
+  background-color: green;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure it's above the rest of the content */
-  opacity: 0; /* Initially hidden */
-  pointer-events: none; /* Prevent interaction when invisible */
-  transition: opacity 0.3s ease; /* Fade-in transition */
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-/* Menu Content */
 .menu-content {
   background-color: green;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.5s ease-out; /* Slide-up animation */
+  animation: slideUp 0.5s ease-out;
 }
 
-/* Slide-up animation */
 @keyframes slideUp {
   from {
     transform: translateY(50px);
@@ -76,50 +71,46 @@ a {
   }
 }
 
-/* When the menu is visible, show the overlay */
 .menu-overlay.show {
   opacity: 1;
-  pointer-events: auto; /* Enable interaction when visible */
+  pointer-events: auto;
 }
 
-/* Navigation and Attribution visibility when the menu is shown */
 .hide-when-menu {
-  display: none; /* Hide navigation and attribution when menu is shown */
+  display: none;
 }
 
-/* Responsive adjustments for navigation and attribution */
 @media (max-width: 768px) {
   nav {
-    padding: 10px; /* Adjust padding on smaller screens */
+    padding: 10px;
   }
 
   h1 {
-    font-size: 1.5rem; /* Adjust title size for smaller screens */
+    font-size: 1.5rem;
   }
 
   .appearance-none {
-    display: block; /* Ensure links are stacked vertically on mobile */
+    display: block;
   }
 
   .appearance-none a {
     display: block;
-    margin-bottom: 10px; /* Space between links */
+    margin-bottom: 10px;
   }
 
   .text-sm {
-    font-size: 0.875rem; /* Adjust font size for attribution text on mobile */
+    font-size: 0.875rem;
   }
 }
 
-/* Ensure the body and html elements take up the entire viewport */
 html,
 body {
   height: 100%;
   width: 100%;
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  min-height: 100vh; /* Ensure body covers the entire height */
+  min-height: 100vh;
 }
