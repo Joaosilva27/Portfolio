@@ -162,6 +162,10 @@ function App() {
             </a>
             .
           </span>
+          <br></br>
+          <span className="text-gray-500 text-center mt-10">
+            © 2025 João Gonçalo Ferreira da Silva. All Rights Reserved.
+          </span>
         </div>
       )}
     </div>

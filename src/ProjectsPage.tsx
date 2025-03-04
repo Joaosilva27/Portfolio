@@ -22,7 +22,6 @@ const ProjectsPage = () => {
           />
         </a>
       </div>
-
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-12 md:mb-14">
         <div className="flex flex-col justify-center">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r text-green-400 bg-clip-text">
@@ -50,7 +49,6 @@ const ProjectsPage = () => {
           alt="Grocery List"
         />
       </div>
-
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-20 mt-25">
         <div className="flex flex-col justify-center md:order-2">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-300 to-blue-200 bg-clip-text text-transparent">
@@ -75,7 +73,6 @@ const ProjectsPage = () => {
           alt="Pokémon TCG"
         />
       </div>
-
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-14">
         <div className="flex flex-col justify-center">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
