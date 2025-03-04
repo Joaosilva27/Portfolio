@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import CharacterScene from "./CharacterScene"; // Import the CharacterScene component
+import defaultCatPicture from "./images/default.png";
+import bananaCatPicture from "./images/banana.png";
+import oiaCatPicture from "./images/oia.png";
+import capybaraPicture from "./images/capy.png";
 
 function App() {
   const modelPath = "/models/maxwell.glb"; // silly loaf dancing cat model (default model)
@@ -36,7 +40,7 @@ function App() {
       {/* Show the "X" button if menu is visible */}
       {showMenu && (
         <div className="absolute top-0 right-4 z-10 mt-4">
-          <span className="text-2xl text-white " onClick={toggleMenu}>
+          <span className="text-2xl text-white" onClick={toggleMenu}>
             x
           </span>
         </div>
@@ -81,30 +85,46 @@ function App() {
         <CharacterScene modelPath={currentModel} showMenu={showMenu} />
         {/* Show buttons to select pets if the menu is visible */}
         {showMenu && (
-          <div className="flex flex-row justify-around text-white">
+          <div className="grid grid-cols-2 gap-4">
             <button
-              className="p-2"
-              onClick={() => handlePetSelection(modelPath, "Pudding")}
+              className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
+              onClick={() => handlePetSelection(modelPath, "Maxwell")}
             >
-              Default Cat
+              <img
+                src={defaultCatPicture}
+                alt="Maxwell"
+                className="w-25 h-25 lg:w-30 lg:h-30 object-scale-down mb-2"
+              />
             </button>
             <button
-              className="p-2"
+              className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
               onClick={() => handlePetSelection(capybara, "Capy")}
             >
-              Capybara
+              <img
+                src={capybaraPicture}
+                alt="Capybara"
+                className="w-25 h-25 lg:w-30 lg:h-30 object-scale-down mb-2"
+              />
             </button>
             <button
-              className="p-2"
-              onClick={() => handlePetSelection(oiaCat, "Oia Cat")}
+              className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
+              onClick={() => handlePetSelection(oiaCat, "Oiiiaooiiiao")}
             >
-              Oia Cat
+              <img
+                src={oiaCatPicture}
+                alt="Oia Cat"
+                className="w-35 h-20 lg:w-40 lg:h-25 object-scale-down mb-2"
+              />
             </button>
             <button
-              className="p-2"
+              className="p-4 w-25 h-25 lg:w-30 lg:h-30 flex flex-col items-center justify-center rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
               onClick={() => handlePetSelection(bananaCat, "Banana Cat")}
             >
-              Banana Cat
+              <img
+                src={bananaCatPicture}
+                alt="Banana Cat"
+                className="w-15 h-15 lg:w-20 lg:h-20 object-scale-down mb-2"
+              />
             </button>
           </div>
         )}
@@ -112,7 +132,10 @@ function App() {
         {!showMenu && (
           <div className="flex">
             <span className="mb-6 text-white text-xl font-bold">{petName}</span>
-            <button className="absolute right-0 mr-2" onClick={toggleMenu}>
+            <button
+              className="absolute right-0 mr-2 bg-white"
+              onClick={toggleMenu}
+            >
               Menu
             </button>
           </div>
