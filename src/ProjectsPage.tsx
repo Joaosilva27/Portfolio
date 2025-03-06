@@ -42,7 +42,11 @@ const ProjectsPage = () => {
             target="_blank"
           >
             <span className="text-xs text-green-400 font-semibold mt-3">
-              Read more about it
+              Read more about it{" "}
+              <span className="text-gray-500 ml-1 mr-1">/</span>{" "}
+              <a href="https://grocery-list20.vercel.app/">
+                <span className="font-semibold">Visit</span>
+              </a>
             </span>
           </a>
         </div>
@@ -67,7 +71,11 @@ const ProjectsPage = () => {
           </p>
           <a href="https://github.com/Joaosilva27/pokemontcg" target="_blank">
             <span className="text-xs text-blue-300 font-semibold mt-3">
-              Read more about it
+              Read more about it{" "}
+              <span className="text-gray-500 ml-1 mr-1">/</span>{" "}
+              <a href="https://pokemontcg-theta.vercel.app/">
+                <span className="font-semibold">Visit</span>
+              </a>
             </span>
           </a>
         </div>
@@ -92,7 +100,11 @@ const ProjectsPage = () => {
           </p>
           <a href="https://github.com/Joaosilva27/idlsmartbar" target="_blank">
             <span className="text-xs text-blue-600 font-semibold mt-3">
-              Read more about it
+              Read more about it{" "}
+              <span className="text-gray-500 ml-1 mr-1">/</span>{" "}
+              <a href="https://idlsmartbar.nl/">
+                <span className="font-semibold">Visit</span>
+              </a>
             </span>
           </a>
         </div>
