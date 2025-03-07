@@ -7,24 +7,6 @@ import TobimasuImage from "./images/tobimasu.png";
 const ProjectsPage = () => {
   return (
     <div className="flex flex-col items-center pt-8 md:pt-10 min-h-screen px-4">
-      <div className="flex items-center mb-6 md:mb-8">
-        <a
-          className="flex"
-          href="https://github.com/Joaosilva27?tab=repositories"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="font-bold text-base md:text-lg bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            View all my projects:
-          </span>
-          <img
-            src={GithubIcon}
-            className="h-5 w-5 ml-2 animate-bounce"
-            alt="Github"
-          />
-        </a>
-      </div>
-
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-12 md:mb-14">
         <div className="flex flex-col justify-center">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r text-green-400 bg-clip-text">
@@ -142,6 +124,23 @@ const ProjectsPage = () => {
             </span>
           </a>
         </div>
+      </div>
+      <div className="flex items-center mt-15 md:mt-18 mb-8">
+        <a
+          className="flex"
+          href="https://github.com/Joaosilva27?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="font-bold text-base md:text-2xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            View all my projects:
+          </span>
+          <img
+            src={GithubIcon}
+            className="h-5 w-5 md:h-7 md:w-7 ml-2 animate-bounce"
+            alt="Github"
+          />
+        </a>
       </div>
     </div>
   );
