@@ -3,10 +3,12 @@ import GroceryListImage from "./images/groceryList.png";
 import PokemonTcgImage from "./images/pokemonTCG.png";
 import SmartbarImage from "./images/smartbar.png";
 import TobimasuImage from "./images/tobimasu.png";
+import AmazonImage from "./images/Amazon.gif";
 
 const ProjectsPage = () => {
   return (
     <div className="flex flex-col items-center pt-8 md:pt-10 min-h-screen px-4">
+      {/* Online grocery app */}
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-12 md:mb-14">
         <div className="flex flex-col justify-center">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r text-green-400 bg-clip-text">
@@ -39,6 +41,7 @@ const ProjectsPage = () => {
         />
       </div>
 
+      {/* Pokemon TCG */}
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-30 mt-25">
         <div className="flex flex-col justify-center md:order-2">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-300 to-blue-200 bg-clip-text text-transparent">
@@ -68,6 +71,7 @@ const ProjectsPage = () => {
         />
       </div>
 
+      {/* Smartbar */}
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-14">
         <div className="flex flex-col justify-center">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
@@ -84,7 +88,7 @@ const ProjectsPage = () => {
             <span className="text-xs text-blue-600 font-semibold mt-3">
               Read more about it{" "}
               <span className="text-gray-500 ml-1 mr-1">/</span>{" "}
-              <a href="https://idlsmartbar.nl/">
+              <a href="https://juanchat-v1.web.app/">
                 <span className="font-semibold">Visit</span>
               </a>
             </span>
@@ -97,6 +101,7 @@ const ProjectsPage = () => {
         />
       </div>
 
+      {/* Tobimasu */}
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40">
         <img
           src={TobimasuImage}
@@ -125,6 +130,37 @@ const ProjectsPage = () => {
           </a>
         </div>
       </div>
+
+      {/* Amazon clone */}
+      <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-14">
+        <div className="flex flex-col justify-center">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#cbddc6] to-[#a8c0a0] bg-clip-text text-transparent">
+            Modern Amazon
+          </h3>
+          <p className="text-base md:text-lg text-[#6b7d76] font-semibold mt-2 md:mt-3">
+            A modern redesign of the Amazon e-commerce platform.
+          </p>
+          <p className="text-sm text-[#4d5c55] mt-2">
+            Browse through hundreds of items, add them to your cart, and proceed
+            to a seamless checkout experience with a modernized design.
+          </p>
+          <a href="https://github.com/Joaosilva27/Amazon" target="_blank">
+            <span className="text-xs text-[#a8c0a0] font-semibold mt-3">
+              Read more about it{" "}
+              <span className="text-[#6b7d76] ml-1 mr-1">/</span>{" "}
+              <a href="https://amazon-psi-flame.vercel.app/" target="_blank">
+                <span className="font-semibold text-[#a8c0a0]">Visit</span>
+              </a>
+            </span>
+          </a>
+        </div>
+        <img
+          src={AmazonImage}
+          className="w-140 mx-auto h-fit"
+          alt="Amazon Clone Interface"
+        />
+      </div>
+
       <div className="flex items-center mt-15 md:mt-18 mb-8">
         <a
           className="flex"
