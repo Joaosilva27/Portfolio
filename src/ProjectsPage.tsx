@@ -3,7 +3,7 @@ import GroceryListImage from "./images/groceryList.png";
 import PokemonTcgImage from "./images/pokemonTCG.png";
 import SmartbarImage from "./images/smartbar.png";
 import TobimasuImage from "./images/tobimasu.png";
-import AmazonImage from "./images/Amazon.gif";
+import AmazonImage from "./images/SharpAmazon.gif";
 
 const ProjectsPage = () => {
   return (
