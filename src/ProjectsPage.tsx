@@ -132,7 +132,7 @@ const ProjectsPage = () => {
       </div>
 
       {/* Amazon clone */}
-      <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-14">
+      <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40">
         <div className="flex flex-col justify-center">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#cbddc6] to-[#a8c0a0] bg-clip-text text-transparent">
             Modern Amazon
