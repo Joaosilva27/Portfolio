@@ -12,14 +12,15 @@ const ProjectsPage = () => {
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-12 md:mb-14">
         <div className="flex flex-col justify-center">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r text-green-400 bg-clip-text">
-            Online Grocery List
+            Online Grocery List with AI
           </h3>
           <p className="text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3">
             A real-time online collaborative grocery list application.
           </p>
           <p className="text-sm text-gray-500 mt-2">
             Create, share, and manage shopping lists with your household,
-            partner or friends.
+            partner or friends. <br></br> Featuring AI-powered recipe
+            suggestions based on your list.
           </p>
           <a
             href="https://github.com/Joaosilva27/Grocery-List2.0"
