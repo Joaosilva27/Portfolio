@@ -1,7 +1,7 @@
 import GithubIcon from "./images/github.png";
 import GroceryListVideo from "./video/GroceryList.mp4";
 import PokemonTcgVideo from "./video/PokemonTCG.mp4";
-import SmartbarImage from "./images/smartbar.png";
+import SmartbarVideo from "./video/Smartbar.mp4";
 import TobimasuVideo from "./video/Tobimasu.mp4";
 import AmazonVideo from "./video/Amazon.mp4";
 
@@ -144,11 +144,17 @@ const ProjectsPage = () => {
             </span>
           </a>
         </div>
-        <img
-          src={SmartbarImage}
-          className="w-140 mx-auto h-fit"
-          alt="Smartbar Interface"
-        />
+        <video
+          className="lg:max-w-150"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ borderRadius: "10px" }}
+        >
+          <source src={SmartbarVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Tobimasu */}
