@@ -2,7 +2,7 @@ import GithubIcon from "./images/github.png";
 import GroceryListVideo from "./video/GroceryList.mp4";
 import PokemonTcgVideo from "./video/PokemonTCG.mp4";
 import SmartbarImage from "./images/smartbar.png";
-import TobimasuImage from "./images/tobimasu.png";
+import TobimasuVideo from "./video/Tobimasu.mp4";
 import AmazonVideo from "./video/Amazon.mp4";
 
 const ProjectsPage = () => {
@@ -153,11 +153,17 @@ const ProjectsPage = () => {
 
       {/* Tobimasu */}
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40">
-        <img
-          src={TobimasuImage}
-          className="order-2 md:order-1 w-140 mx-auto h-fit md:mt-0"
-          alt="Tobimasu Music"
-        />
+        <video
+          className="lg:max-w-150 order-2 md:order-1"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ borderRadius: "10px" }}
+        >
+          <source src={TobimasuVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div className="flex flex-col justify-center order-1 md:order-2">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-800 to-green-500 bg-clip-text text-transparent">
             Tobimasu Music
