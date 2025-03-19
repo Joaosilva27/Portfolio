@@ -84,6 +84,43 @@ const ProjectsPage = () => {
         </video>
       </div>
 
+      {/* Amazon clone */}
+      <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-40">
+        <div className="flex flex-col justify-center">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#cbddc6] to-[#a8c0a0] bg-clip-text text-transparent">
+            Modern Amazon
+          </h3>
+          <p className="text-base md:text-lg text-[#6b7d76] font-semibold mt-2 md:mt-3">
+            A modern redesign of the Amazon e-commerce platform.
+          </p>
+          <p className="text-sm text-[#4d5c55] mt-2">
+            Browse through hundreds of items, add them to your cart,<br></br>{" "}
+            and proceed to a seamless checkout experience with a modernized
+            design.
+          </p>
+          <a href="https://github.com/Joaosilva27/Amazon" target="_blank">
+            <span className="text-xs text-[#a8c0a0] font-semibold mt-3">
+              Read more about it{" "}
+              <span className="text-[#6b7d76] ml-1 mr-1">/</span>{" "}
+              <a href="https://amazon-psi-flame.vercel.app/" target="_blank">
+                <span className="font-semibold text-[#a8c0a0]">Visit</span>
+              </a>
+            </span>
+          </a>
+        </div>
+        <video
+          className="max-w-100"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ borderRadius: "10px" }}
+        >
+          <source src={AmazonVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
       {/* Smartbar */}
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-14">
         <div className="flex flex-col justify-center">
@@ -142,42 +179,6 @@ const ProjectsPage = () => {
             </span>
           </a>
         </div>
-      </div>
-
-      {/* Amazon clone */}
-      <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40">
-        <div className="flex flex-col justify-center">
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#cbddc6] to-[#a8c0a0] bg-clip-text text-transparent">
-            Modern Amazon
-          </h3>
-          <p className="text-base md:text-lg text-[#6b7d76] font-semibold mt-2 md:mt-3">
-            A modern redesign of the Amazon e-commerce platform.
-          </p>
-          <p className="text-sm text-[#4d5c55] mt-2">
-            Browse through hundreds of items, add them to your cart, and proceed
-            to a seamless checkout experience with a modernized design.
-          </p>
-          <a href="https://github.com/Joaosilva27/Amazon" target="_blank">
-            <span className="text-xs text-[#a8c0a0] font-semibold mt-3">
-              Read more about it{" "}
-              <span className="text-[#6b7d76] ml-1 mr-1">/</span>{" "}
-              <a href="https://amazon-psi-flame.vercel.app/" target="_blank">
-                <span className="font-semibold text-[#a8c0a0]">Visit</span>
-              </a>
-            </span>
-          </a>
-        </div>
-        <video
-          className="md:max-w-160"
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ borderRadius: "10px" }}
-        >
-          <source src={AmazonVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
       </div>
 
       <div className="flex items-center mt-15 md:mt-18 mb-8">
