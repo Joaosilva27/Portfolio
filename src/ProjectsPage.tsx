@@ -1,9 +1,9 @@
 import GithubIcon from "./images/github.png";
-import GroceryListImage from "./images/groceryList.png";
-import PokemonTcgImage from "./images/pokemonTCG.png";
+import GroceryListVideo from "./video/GroceryList.mp4";
+import PokemonTcgVideo from "./video/PokemonTCG.mp4";
 import SmartbarImage from "./images/smartbar.png";
 import TobimasuImage from "./images/tobimasu.png";
-import AmazonImage from "./images/SharpAmazon.gif";
+import AmazonVideo from "./video/Amazon.mp4";
 
 const ProjectsPage = () => {
   return (
@@ -14,7 +14,7 @@ const ProjectsPage = () => {
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r text-green-400 bg-clip-text">
             Online Grocery List with AI
           </h3>
-          <p className="text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3">
+          <p className="text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3 w-fit">
             A real-time online collaborative grocery list application.
           </p>
           <p className="text-sm text-gray-500 mt-2">
@@ -35,11 +35,17 @@ const ProjectsPage = () => {
             </span>
           </a>
         </div>
-        <img
-          src={GroceryListImage}
-          className="mt-4 md:mt-0 w-full max-w-[280px] md:max-w-xs mx-auto"
-          alt="Grocery List"
-        />
+        <video
+          className="max-w-100"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ borderRadius: "10px" }}
+        >
+          <source src={GroceryListVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Pokemon TCG */}
@@ -65,11 +71,17 @@ const ProjectsPage = () => {
             </span>
           </a>
         </div>
-        <img
-          src={PokemonTcgImage}
-          className="mt-4 md:mt-0 w-full max-w-[280px] md:max-w-xs mx-auto md:order-1"
-          alt="Pokémon TCG"
-        />
+        <video
+          className="max-w-100"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ borderRadius: "10px" }}
+        >
+          <source src={PokemonTcgVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Smartbar */}
@@ -155,11 +167,17 @@ const ProjectsPage = () => {
             </span>
           </a>
         </div>
-        <img
-          src={AmazonImage}
-          className="w-140 mx-auto h-fit"
-          alt="Amazon Clone Interface"
-        />
+        <video
+          className="md:max-w-160"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ borderRadius: "10px" }}
+        >
+          <source src={AmazonVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <div className="flex items-center mt-15 md:mt-18 mb-8">
