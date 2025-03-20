@@ -1,9 +1,73 @@
+import { useEffect, useRef } from "react";
 import GithubIcon from "./images/github.png";
 import GroceryListVideo from "./video/GroceryList.mp4";
 import PokemonTcgVideo from "./video/PokemonTCG.mp4";
 import SmartbarVideo from "./video/Smartbar.mp4";
 import TobimasuVideo from "./video/Tobimasu.mp4";
 import AmazonVideo from "./video/Amazon.mp4";
+
+// Custom hook for lazy loading videos
+const useLazyVideo = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Play video when it becomes visible
+          if (videoRef.current) {
+            videoRef.current.play();
+          }
+        } else {
+          // Pause video when it leaves viewport
+          if (videoRef.current) {
+            videoRef.current.pause();
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
+  return videoRef;
+};
+
+// Reusable video component with lazy loading
+const LazyVideo = ({ src, className }) => {
+  const videoRef = useLazyVideo();
+
+  return (
+    <video
+      ref={videoRef}
+      className={className}
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      style={{ borderRadius: "10px" }}
+    >
+      <source src={src} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  );
+};
 
 const ProjectsPage = () => {
   return (
@@ -25,27 +89,21 @@ const ProjectsPage = () => {
           <a
             href="https://github.com/Joaosilva27/Grocery-List2.0"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <span className="text-xs text-green-400 font-semibold mt-3">
               Read more about it{" "}
               <span className="text-gray-500 ml-1 mr-1">/</span>{" "}
-              <a href="https://grocery-list20.vercel.app/">
+              <a
+                href="https://grocery-list20.vercel.app/"
+                rel="noopener noreferrer"
+              >
                 <span className="font-semibold">Visit</span>
               </a>
             </span>
           </a>
         </div>
-        <video
-          className="max-w-100"
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ borderRadius: "10px" }}
-        >
-          <source src={GroceryListVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <LazyVideo src={GroceryListVideo} className="max-w-100" />
       </div>
 
       {/* Pokemon TCG */}
@@ -61,27 +119,24 @@ const ProjectsPage = () => {
             Track your Pokémon card collection and explore every set ever
             released since 1996.
           </p>
-          <a href="https://github.com/Joaosilva27/pokemontcg" target="_blank">
+          <a
+            href="https://github.com/Joaosilva27/pokemontcg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="text-xs text-blue-300 font-semibold mt-3">
               Read more about it{" "}
               <span className="text-gray-500 ml-1 mr-1">/</span>{" "}
-              <a href="https://pokemontcg-theta.vercel.app/">
+              <a
+                href="https://pokemontcg-theta.vercel.app/"
+                rel="noopener noreferrer"
+              >
                 <span className="font-semibold">Visit</span>
               </a>
             </span>
           </a>
         </div>
-        <video
-          className="max-w-100"
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ borderRadius: "10px" }}
-        >
-          <source src={PokemonTcgVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <LazyVideo src={PokemonTcgVideo} className="max-w-100" />
       </div>
 
       {/* Amazon clone */}
@@ -98,27 +153,25 @@ const ProjectsPage = () => {
             and proceed to a seamless checkout experience with a modernized
             design.
           </p>
-          <a href="https://github.com/Joaosilva27/Amazon" target="_blank">
+          <a
+            href="https://github.com/Joaosilva27/Amazon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="text-xs text-[#a8c0a0] font-semibold mt-3">
               Read more about it{" "}
               <span className="text-[#6b7d76] ml-1 mr-1">/</span>{" "}
-              <a href="https://amazon-psi-flame.vercel.app/" target="_blank">
+              <a
+                href="https://amazon-psi-flame.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="font-semibold text-[#a8c0a0]">Visit</span>
               </a>
             </span>
           </a>
         </div>
-        <video
-          className="max-w-100"
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ borderRadius: "10px" }}
-        >
-          <source src={AmazonVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <LazyVideo src={AmazonVideo} className="max-w-100" />
       </div>
 
       {/* Smartbar */}
@@ -134,42 +187,29 @@ const ProjectsPage = () => {
             Comprehensive calibration workflows, technical reference guides, and
             real-time chat for professional calibrators.
           </p>
-          <a href="https://github.com/Joaosilva27/idlsmartbar" target="_blank">
+          <a
+            href="https://github.com/Joaosilva27/idlsmartbar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="text-xs text-blue-600 font-semibold mt-3">
               Read more about it{" "}
               <span className="text-gray-500 ml-1 mr-1">/</span>{" "}
-              <a href="https://juanchat-v1.web.app/">
+              <a href="https://juanchat-v1.web.app/" rel="noopener noreferrer">
                 <span className="font-semibold">Visit</span>
               </a>
             </span>
           </a>
         </div>
-        <video
-          className="lg:max-w-150"
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ borderRadius: "10px" }}
-        >
-          <source src={SmartbarVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <LazyVideo src={SmartbarVideo} className="lg:max-w-150" />
       </div>
 
       {/* Tobimasu */}
       <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40">
-        <video
+        <LazyVideo
+          src={TobimasuVideo}
           className="lg:max-w-150 order-2 md:order-1"
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ borderRadius: "10px" }}
-        >
-          <source src={TobimasuVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        />
         <div className="flex flex-col justify-center order-1 md:order-2">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-800 to-green-500 bg-clip-text text-transparent">
             Tobimasu Music
