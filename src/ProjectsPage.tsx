@@ -6,8 +6,8 @@ import SmartbarVideo from "./video/Smartbar.mp4";
 import TobimasuVideo from "./video/Tobimasu.mp4";
 import AmazonVideo from "./video/Amazon.mp4";
 
-// Custom hook for lazy loading videos that play for 3 seconds and freeze
-const useLazyVideo = () => {
+// Custom hook for lazy loading videos with optional freeze after 3 seconds
+const useLazyVideo = (shouldFreeze = true) => {
   const videoRef = useRef(null);
   const timerRef = useRef(null);
   const hasPlayedRef = useRef(false);
@@ -22,26 +22,24 @@ const useLazyVideo = () => {
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Only play the video if it hasn't played through already
-          if (videoRef.current && !hasPlayedRef.current) {
+          if (videoRef.current) {
             videoRef.current.play();
 
-            // Set a timer to pause the video after 3 seconds
-            timerRef.current = setTimeout(() => {
-              if (videoRef.current) {
-                videoRef.current.pause();
-                hasPlayedRef.current = true; // Mark as played
-              }
-            }, 3000);
+            if (shouldFreeze) {
+              timerRef.current = setTimeout(() => {
+                if (videoRef.current) {
+                  videoRef.current.pause();
+                  hasPlayedRef.current = true;
+                }
+              }, 3000);
+            }
           }
         } else {
-          // If video leaves viewport before 3 seconds, clear the timer
           if (timerRef.current) {
             clearTimeout(timerRef.current);
           }
 
-          // Pause video when it leaves viewport
-          if (videoRef.current && !hasPlayedRef.current) {
+          if (videoRef.current) {
             videoRef.current.pause();
           }
         }
@@ -62,14 +60,14 @@ const useLazyVideo = () => {
         clearTimeout(timerRef.current);
       }
     };
-  }, []);
+  }, [shouldFreeze]);
 
   return videoRef;
 };
 
-// Reusable video component with lazy loading and 3-second play
-const LazyVideo = ({ src, className }) => {
-  const videoRef = useLazyVideo();
+// Reusable video component with lazy loading and optional 3-second play
+const LazyVideo = ({ src, className, shouldFreeze = true, loop = false }) => {
+  const videoRef = useLazyVideo(shouldFreeze);
 
   return (
     <video
@@ -77,6 +75,7 @@ const LazyVideo = ({ src, className }) => {
       className={className}
       muted
       playsInline
+      loop={loop}
       preload="metadata"
       style={{ borderRadius: "10px" }}
     >
@@ -188,7 +187,12 @@ const ProjectsPage = () => {
             </span>
           </a>
         </div>
-        <LazyVideo src={AmazonVideo} className="max-w-100" />
+        <LazyVideo
+          src={AmazonVideo}
+          className="max-w-100"
+          shouldFreeze={false}
+          loop={true}
+        />
       </div>
 
       {/* Smartbar */}
