@@ -6,9 +6,11 @@ import SmartbarVideo from "./video/Smartbar.mp4";
 import TobimasuVideo from "./video/Tobimasu.mp4";
 import AmazonVideo from "./video/Amazon.mp4";
 
-// Custom hook for lazy loading videos
+// Custom hook for lazy loading videos that play for 3 seconds and freeze
 const useLazyVideo = () => {
   const videoRef = useRef(null);
+  const timerRef = useRef(null);
+  const hasPlayedRef = useRef(false);
 
   useEffect(() => {
     const options = {
@@ -20,13 +22,26 @@ const useLazyVideo = () => {
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Play video when it becomes visible
-          if (videoRef.current) {
+          // Only play the video if it hasn't played through already
+          if (videoRef.current && !hasPlayedRef.current) {
             videoRef.current.play();
+
+            // Set a timer to pause the video after 3 seconds
+            timerRef.current = setTimeout(() => {
+              if (videoRef.current) {
+                videoRef.current.pause();
+                hasPlayedRef.current = true; // Mark as played
+              }
+            }, 3000);
           }
         } else {
+          // If video leaves viewport before 3 seconds, clear the timer
+          if (timerRef.current) {
+            clearTimeout(timerRef.current);
+          }
+
           // Pause video when it leaves viewport
-          if (videoRef.current) {
+          if (videoRef.current && !hasPlayedRef.current) {
             videoRef.current.pause();
           }
         }
@@ -43,13 +58,16 @@ const useLazyVideo = () => {
       if (videoRef.current) {
         observer.unobserve(videoRef.current);
       }
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
     };
   }, []);
 
   return videoRef;
 };
 
-// Reusable video component with lazy loading
+// Reusable video component with lazy loading and 3-second play
 const LazyVideo = ({ src, className }) => {
   const videoRef = useLazyVideo();
 
@@ -58,7 +76,6 @@ const LazyVideo = ({ src, className }) => {
       ref={videoRef}
       className={className}
       muted
-      loop
       playsInline
       preload="metadata"
       style={{ borderRadius: "10px" }}
