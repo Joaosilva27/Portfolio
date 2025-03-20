@@ -7,19 +7,19 @@ import TobimasuVideo from "./video/Tobimasu.mp4";
 import AmazonVideo from "./video/Amazon.mp4";
 
 // Custom hook for lazy loading videos with optional freeze after 3 seconds
-const useLazyVideo = (shouldFreeze = true) => {
-  const videoRef = useRef(null);
-  const timerRef = useRef(null);
-  const hasPlayedRef = useRef(false);
+const useLazyVideo = (shouldFreeze: boolean = true) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const timerRef = useRef<number | null>(null);
+  const hasPlayedRef = useRef<boolean>(false);
 
   useEffect(() => {
-    const options = {
+    const options: IntersectionObserverInit = {
       root: null,
       rootMargin: "0px",
       threshold: 0.1,
     };
 
-    const handleIntersection = (entries) => {
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (videoRef.current) {
@@ -65,8 +65,20 @@ const useLazyVideo = (shouldFreeze = true) => {
   return videoRef;
 };
 
+interface LazyVideoProps {
+  src: string;
+  className?: string;
+  shouldFreeze?: boolean;
+  loop?: boolean;
+}
+
 // Reusable video component with lazy loading and optional 3-second play
-const LazyVideo = ({ src, className, shouldFreeze = true, loop = false }) => {
+const LazyVideo: React.FC<LazyVideoProps> = ({
+  src,
+  className,
+  shouldFreeze = true,
+  loop = false,
+}) => {
   const videoRef = useLazyVideo(shouldFreeze);
 
   return (
@@ -85,7 +97,7 @@ const LazyVideo = ({ src, className, shouldFreeze = true, loop = false }) => {
   );
 };
 
-const ProjectsPage = () => {
+const ProjectsPage: React.FC = () => {
   return (
     <div className="flex flex-col items-center pt-8 md:pt-10 min-h-screen px-4">
       {/* Online grocery app */}
