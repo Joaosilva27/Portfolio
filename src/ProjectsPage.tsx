@@ -6,6 +6,7 @@ import SmartbarVideo from "./video/Smartbar.mp4";
 import TobimasuVideo from "./video/Tobimasu.mp4";
 import AmazonVideo from "./video/Amazon.mp4";
 import QuillNotVideo from "./video/QuillNot.mp4";
+import SkinMatchVideo from "./video/SkinMatch.mp4";
 
 // Custom hook for lazy loading videos with optional freeze after 3 seconds
 const useLazyVideo = (shouldFreeze: boolean = true) => {
@@ -300,6 +301,43 @@ const ProjectsPage: React.FC = () => {
           </a>
         </div>
         <LazyVideo src={QuillNotVideo} className="lg:max-w-150" />
+      </div>
+
+      {/* Skin-Match */}
+      <div className="text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40">
+        <LazyVideo
+          src={SkinMatchVideo}
+          className="lg:max-w-150 order-2 md:order-1"
+        />
+        <div className="flex flex-col justify-center order-1 md:order-2">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-pink-200 to-pink-400 bg-clip-text text-transparent">
+            Skin-Match
+          </h3>
+          <p className="text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3">
+            An AI-powered tool that helps you find the perfect makeup products.
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
+            Take a selfie, and Skin-Match will analyze your skin tone and
+            features, recommending the best makeup products tailored to your
+            appearance.
+          </p>
+          <a
+            href="https://github.com/Joaosilva27/skin-tone-match-ai"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="text-xs text-pink-300 font-semibold mt-3">
+              Read more about it{" "}
+              <span className="text-gray-500 ml-1 mr-1">/</span>{" "}
+              <a
+                href="https://skin-tone-match-ai.vercel.app/"
+                rel="noopener noreferrer"
+              >
+                <span className="font-semibold">Visit</span>
+              </a>
+            </span>
+          </a>
+        </div>
       </div>
 
       <div className="flex items-center mt-15 md:mt-18 mb-8">
