@@ -1,5 +1,3 @@
-import { Link } from "react-router";
-
 export default function Header() {
   return (
     <nav className='w-full flex flex-col items-center py-6 px-4'>
