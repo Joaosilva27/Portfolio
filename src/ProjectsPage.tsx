@@ -7,6 +7,7 @@ import TobimasuVideo from "./video/Tobimasu.mp4";
 import AmazonVideo from "./video/Amazon.mp4";
 import QuillNotVideo from "./video/QuillNot.mp4";
 import SkinMatchVideo from "./video/SkinMatch.mp4";
+import BuzzTriviaVideo from "./video/BuzzTrivia.mp4";
 
 // Custom hook for lazy loading videos with optional freeze after 3 seconds
 const useLazyVideo = (shouldFreeze: boolean = true) => {
@@ -211,7 +212,7 @@ const ProjectsPage: React.FC = () => {
           <a href='https://github.com/Joaosilva27/QuillNot_Paraphraser' target='_blank' rel='noopener noreferrer'>
             <span className='text-xs text-green-600 font-semibold mt-3'>
               Read more about it <span className='text-gray-500 ml-1 mr-1'>/</span>{" "}
-              <a href='https://paraphraser-taupe.vercel.app/' rel='noopener noreferrer'>
+              <a href='https://quillnot.site' rel='noopener noreferrer'>
                 <span className='font-semibold'>Visit</span>
               </a>
             </span>
@@ -242,6 +243,31 @@ const ProjectsPage: React.FC = () => {
             </span>
           </a>
         </div>
+      </div>
+
+      {/* Buzz! Trivia Game */}
+      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40'>
+        <div className='flex flex-col justify-center'>
+          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-violet-400 to-violet-500 bg-clip-text text-transparent'>
+            Buzz! Trivia Game
+          </h3>
+          <p className='text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3'>
+            An interactive trivia game powered by AI-generated questions.
+          </p>
+          <p className='text-sm text-gray-500 mt-2'>
+            Choose from curated categories or create custom trivia topics tailored to your interests and knowledge areas, inspired by the classic
+            PlayStation Buzz! game series.
+          </p>
+          <a href='https://github.com/Joaosilva27/trivia-game-buzz' target='_blank' rel='noopener noreferrer'>
+            <span className='text-xs text-violet-400 font-semibold mt-3'>
+              Read more about it <span className='text-gray-500 ml-1 mr-1'>/</span>{" "}
+              <a href='https://trivia-game-buzz.vercel.app/' rel='noopener noreferrer'>
+                <span className='font-semibold'>Visit</span>
+              </a>
+            </span>
+          </a>
+        </div>
+        <LazyVideo src={BuzzTriviaVideo} className='lg:max-w-150' />
       </div>
 
       <div className='flex items-center mt-15 md:mt-18 mb-8'>
