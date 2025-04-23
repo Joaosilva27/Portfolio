@@ -271,7 +271,7 @@ const ProjectsPage: React.FC = () => {
       </div>
 
       <div className='flex items-center mt-15 md:mt-18 mb-8'>
-        <a className='flex' href='https://github.com/Joaosilva27?tab=repositories' target='_blank' rel='noopener noreferrer'>
+        <a className='flex' href='https://github.com/Joaosilva27' target='_blank' rel='noopener noreferrer'>
           <span className='font-bold text-base md:text-2xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'>
             View all my projects:
           </span>
