@@ -9,6 +9,7 @@ import QuillNotVideo from "./video/QuillNot.mp4";
 import SkinMatchVideo from "./video/SkinMatch.mp4";
 import BuzzTriviaVideo from "./video/BuzzTrivia.mp4";
 import GossipAiVideo from "./video/gossipAI.mp4";
+import CookingAniaVideo from "./video/cooking_ania.mp4";
 
 // Custom hook for lazy loading videos with optional freeze after 3 seconds
 const useLazyVideo = (shouldFreeze: boolean = true) => {
@@ -294,6 +295,28 @@ const ProjectsPage: React.FC = () => {
             </span>
           </a>
         </div>
+      </div>
+
+      {/* Cooking Ania */}
+      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40'>
+        <div className='flex flex-col justify-center'>
+          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-rose-300 to-rose-700 bg-clip-text text-transparent'>
+            Cooking Ania
+          </h3>
+          <p className='text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3'>My girlfriend's recipe tracker with added AI.</p>
+          <p className='text-sm text-gray-500 mt-2'>
+            Discover cherished recipes from my girlfriend's collection, enhanced with AI-generated culinary alternatives.{" "}
+          </p>
+          <a href='https://github.com/Joaosilva27/CookingAnia' target='_blank' rel='noopener noreferrer'>
+            <span className='text-xs text-rose-700 font-semibold mt-3'>
+              Read more about it <span className='text-gray-500 ml-1 mr-1'>/</span>{" "}
+              <a href='https://cooking-ania.vercel.app/' rel='noopener noreferrer'>
+                <span className='font-semibold'>Visit</span>
+              </a>
+            </span>
+          </a>
+        </div>
+        <LazyVideo src={CookingAniaVideo} className='lg:max-w-150' />
       </div>
 
       <div className='flex items-center mt-15 md:mt-18 mb-8'>
