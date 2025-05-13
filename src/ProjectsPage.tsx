@@ -157,50 +157,10 @@ const ProjectsPage: React.FC = () => {
         <LazyVideo src={AmazonVideo} className='max-w-100' shouldFreeze={false} loop={true} />
       </div>
 
-      {/* Smartbar */}
-      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-14'>
-        <div className='flex flex-col justify-center'>
-          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent'>
-            Smartbar
-          </h3>
-          <p className='text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3'>Professional TV calibration guide with a built-in chat.</p>
-          <p className='text-sm text-gray-500 mt-2'>
-            Comprehensive calibration workflows, technical reference guides, and real-time chat for professional calibrators.
-          </p>
-          <a href='https://github.com/Joaosilva27/idlsmartbar' target='_blank' rel='noopener noreferrer'>
-            <span className='text-xs text-blue-600 font-semibold mt-3'>
-              Read more about it <span className='text-gray-500 ml-1 mr-1'>/</span>{" "}
-              <a href='https://juanchat-v1.web.app/' rel='noopener noreferrer'>
-                <span className='font-semibold'>Visit</span>
-              </a>
-            </span>
-          </a>
-        </div>
-        <LazyVideo src={SmartbarVideo} className='lg:max-w-150' />
-      </div>
-
-      {/* Tobimasu */}
-      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40'>
-        <LazyVideo src={TobimasuVideo} className='lg:max-w-150 order-2 md:order-1' />
-        <div className='flex flex-col justify-center order-1 md:order-2'>
-          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-800 to-green-500 bg-clip-text text-transparent'>
-            Tobimasu Music
-          </h3>
-          <p className='text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3'>
-            Music discovery platform with millions of tracks and albums.
-          </p>
-          <p className='text-sm text-gray-500 mt-2'>
-            Search and organize music collections, track favorite albums, and explore detailed information.
-          </p>
-          <a href='https://github.com/Joaosilva27/Tobimasu-Music?tab=readme-ov-file' target='_blank' rel='noopener noreferrer'>
-            <span className='text-xs text-green-800 font-semibold mt-3'>Read more about it</span>
-          </a>
-        </div>
-      </div>
-
       {/* Quillnot */}
-      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40'>
-        <div className='flex flex-col justify-center'>
+      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8'>
+        <LazyVideo src={QuillNotVideo} className='lg:max-w-150 order-2 md:order-1' />
+        <div className='flex flex-col justify-center order-1 md:order-2'>
           <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-400 to-green-800 bg-clip-text text-transparent'>
             QuillNot Paraphraser
           </h3>
@@ -215,31 +175,6 @@ const ProjectsPage: React.FC = () => {
             <span className='text-xs text-green-600 font-semibold mt-3'>
               Read more about it <span className='text-gray-500 ml-1 mr-1'>/</span>{" "}
               <a href='https://quillnot.site' rel='noopener noreferrer'>
-                <span className='font-semibold'>Visit</span>
-              </a>
-            </span>
-          </a>
-        </div>
-        <LazyVideo src={QuillNotVideo} className='lg:max-w-150' />
-      </div>
-
-      {/* Skin-Match */}
-      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40'>
-        <LazyVideo src={SkinMatchVideo} className='lg:max-w-150 order-2 md:order-1' />
-        <div className='flex flex-col justify-center order-1 md:order-2'>
-          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-pink-200 to-pink-400 bg-clip-text text-transparent'>
-            Skin-Match
-          </h3>
-          <p className='text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3'>
-            An AI-powered tool that helps you find the perfect makeup products.
-          </p>
-          <p className='text-sm text-gray-500 mt-2'>
-            Take a selfie, and Skin-Match will analyze your skin tone and features, recommending the best makeup products tailored to your appearance.
-          </p>
-          <a href='https://github.com/Joaosilva27/skin-tone-match-ai' target='_blank' rel='noopener noreferrer'>
-            <span className='text-xs text-pink-300 font-semibold mt-3'>
-              Read more about it <span className='text-gray-500 ml-1 mr-1'>/</span>{" "}
-              <a href='https://skin-tone-match-ai.vercel.app/' rel='noopener noreferrer'>
                 <span className='font-semibold'>Visit</span>
               </a>
             </span>
@@ -272,24 +207,64 @@ const ProjectsPage: React.FC = () => {
         <LazyVideo src={BuzzTriviaVideo} className='lg:max-w-150' />
       </div>
 
-      {/* Gossip AI */}
+      {/* Tobimasu */}
       <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40'>
-        <LazyVideo src={GossipAiVideo} className='lg:max-w-150 order-2 md:order-1' />
+        <LazyVideo src={TobimasuVideo} className='lg:max-w-150 order-2 md:order-1' />
         <div className='flex flex-col justify-center order-1 md:order-2'>
-          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-300 to-purple-500 bg-clip-text text-transparent'>
-            Gossip AI
+          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-800 to-green-500 bg-clip-text text-transparent'>
+            Tobimasu Music
           </h3>
           <p className='text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3'>
-            A fun AI-powered gossip generator that makes learning entertaining.
+            Music discovery platform with millions of tracks and albums.
           </p>
           <p className='text-sm text-gray-500 mt-2'>
-            Enter any keyword, person, or phrase, and watch Gossip AI transform it into juicy gossip, providing a humorous and memorable way to learn
-            about any topic.
+            Search and organize music collections, track favorite albums, and explore detailed information.
           </p>
-          <a href='https://github.com/Joaosilva27/gossip-explainer-ai' target='_blank' rel='noopener noreferrer'>
-            <span className='text-xs text-purple-400 font-semibold mt-3'>
+          <a href='https://github.com/Joaosilva27/Tobimasu-Music?tab=readme-ov-file' target='_blank' rel='noopener noreferrer'>
+            <span className='text-xs text-green-800 font-semibold mt-3'>Read more about it</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Smartbar */}
+      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-14'>
+        <div className='flex flex-col justify-center'>
+          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent'>
+            Smartbar
+          </h3>
+          <p className='text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3'>Professional TV calibration guide with a built-in chat.</p>
+          <p className='text-sm text-gray-500 mt-2'>
+            Comprehensive calibration workflows, technical reference guides, and real-time chat for professional calibrators.
+          </p>
+          <a href='https://github.com/Joaosilva27/idlsmartbar' target='_blank' rel='noopener noreferrer'>
+            <span className='text-xs text-blue-600 font-semibold mt-3'>
               Read more about it <span className='text-gray-500 ml-1 mr-1'>/</span>{" "}
-              <a href='https://gossip-explainer-ai.vercel.app/' rel='noopener noreferrer'>
+              <a href='https://juanchat-v1.web.app/' rel='noopener noreferrer'>
+                <span className='font-semibold'>Visit</span>
+              </a>
+            </span>
+          </a>
+        </div>
+        <LazyVideo src={SmartbarVideo} className='lg:max-w-150' />
+      </div>
+
+      {/* Skin-Match */}
+      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40'>
+        <LazyVideo src={SkinMatchVideo} className='lg:max-w-150 order-2 md:order-1' />
+        <div className='flex flex-col justify-center order-1 md:order-2'>
+          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-pink-200 to-pink-400 bg-clip-text text-transparent'>
+            Skin-Match
+          </h3>
+          <p className='text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3'>
+            An AI-powered tool that helps you find the perfect makeup products.
+          </p>
+          <p className='text-sm text-gray-500 mt-2'>
+            Take a selfie, and Skin-Match will analyze your skin tone and features, recommending the best makeup products tailored to your appearance.
+          </p>
+          <a href='https://github.com/Joaosilva27/skin-tone-match-ai' target='_blank' rel='noopener noreferrer'>
+            <span className='text-xs text-pink-300 font-semibold mt-3'>
+              Read more about it <span className='text-gray-500 ml-1 mr-1'>/</span>{" "}
+              <a href='https://skin-tone-match-ai.vercel.app/' rel='noopener noreferrer'>
                 <span className='font-semibold'>Visit</span>
               </a>
             </span>
@@ -317,6 +292,31 @@ const ProjectsPage: React.FC = () => {
           </a>
         </div>
         <LazyVideo src={CookingAniaVideo} className='lg:max-w-150' />
+      </div>
+
+      {/* Gossip AI */}
+      <div className='text-center flex flex-col md:flex-row items-center gap-6 mb-8 mt-40'>
+        <LazyVideo src={GossipAiVideo} className='lg:max-w-150 order-2 md:order-1' />
+        <div className='flex flex-col justify-center order-1 md:order-2'>
+          <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-300 to-purple-500 bg-clip-text text-transparent'>
+            Gossip AI
+          </h3>
+          <p className='text-base md:text-lg text-gray-600 font-semibold mt-2 md:mt-3'>
+            A fun AI-powered gossip generator that makes learning entertaining.
+          </p>
+          <p className='text-sm text-gray-500 mt-2'>
+            Enter any keyword, person, or phrase, and watch Gossip AI transform it into juicy gossip, providing a humorous and memorable way to learn
+            about any topic.
+          </p>
+          <a href='https://github.com/Joaosilva27/gossip-explainer-ai' target='_blank' rel='noopener noreferrer'>
+            <span className='text-xs text-purple-400 font-semibold mt-3'>
+              Read more about it <span className='text-gray-500 ml-1 mr-1'>/</span>{" "}
+              <a href='https://gossip-explainer-ai.vercel.app/' rel='noopener noreferrer'>
+                <span className='font-semibold'>Visit</span>
+              </a>
+            </span>
+          </a>
+        </div>
       </div>
 
       <div className='flex items-center mt-15 md:mt-18 mb-8'>
